@@ -1,0 +1,36 @@
+{
+  "name": "job-portal",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@guolao/vue-monaco-editor": "^1.5.1",
+    "@iconify/vue": "^4.1.2",
+    "@vueup/vue-quill": "^1.2.0",
+    "aos": "^2.3.4",
+    "axios": "^1.7.2",
+    "date-fns": "^3.6.0",
+    "dayjs": "^1.11.13",
+    "flowbite": "^2.5.1",
+    "pinia": "^2.1.7",
+    "quill": "^2.0.2",
+    "socket.io-client": "^4.7.5",
+    "vue": "^3.4.21",
+    "vue-awesome-paginate": "^1.1.46",
+    "vue-router": "^4.3.0",
+    "vue-toast-notification": "^3.1.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.8",
+    "vite-plugin-vue-devtools": "^7.0.25"
+  }
+}
