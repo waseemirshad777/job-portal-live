@@ -24,7 +24,7 @@ const goToFilteredJobs = () => {
 </script>
 
 <template>
-  <section class="h-screen bg-cover bg-center" style="background-image: url('/src/assets/images/bg-banner.svg'); margin-top: 60px;">
+  <section class="h-screen bg-cover bg-center" style="background-image: url('/images/bg-banner.svg'); margin-top: 60px;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col lg:flex-row justify-between items-center">
       
       <!-- Left Side: Heading, Paragraph, and Search Form -->
@@ -88,7 +88,7 @@ const goToFilteredJobs = () => {
       <!-- Right Side: Image -->
       <div class="w:1/2">
         <img 
-          src="@/assets/images/hero-image.png" 
+          src="/images/hero-image.png" 
           alt="Job Search" 
           class=" object-cover"
         />

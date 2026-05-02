@@ -56,10 +56,10 @@ const router = createRouter({
     { path: '/reset-password/:token', name: 'reset-password', component: ResetPassword },
     { path: '/', name: 'home', component: HomeView },
 
-    { path: '/job-post', name: 'Jobpost', component: JobPost, meta:{ requiresAuth: true}  },
+    { path: '/job-post', name: 'Jobpost', component: JobPost, meta:{ requiresAuth: true, roles: ['employer']}  },
     { path: '/jobs', name: 'Jobs', component: Jobs },
     // { path: '/jobs', name: 'FilteredJobs', component: FilteredJobs },
-    { path: '/job-edit/:id', name: 'JobEdit', component: JobEdit, },
+    { path: '/job-edit/:id', name: 'JobEdit', component: JobEdit, meta:{ requiresAuth: true, roles: ['employer']}},
     { path: '/job-detail/:id', name: 'Jobdetail', component: JobDeatil, meta:{ requiresAuth: true} },
     { path: '/companies', name: 'companies', component: Companies },
     { path: '/company-detail/:id', name: 'company-detail', component: CompanyDetail, meta:{ requiresAuth: true}  },
@@ -73,14 +73,14 @@ const router = createRouter({
     { path: '/blog-detail/:id', name: 'blog-detail', component: BlogDetail },
 
     { path: '/my-account', name: 'my-account', component: MyAccount, meta:{ requiresAuth: true} },
-    { path: '/jobs-dashboard', name: 'Jobdashboard', component: JobDashboard, meta:{ requiresAuth: true} },
+    { path: '/jobs-dashboard', name: 'Jobdashboard', component: JobDashboard, meta:{ requiresAuth: true, roles: ['employer']} },
     { path: '/account-detail', name: 'account-detail', component: AccountDetail, meta:{ requiresAuth: true} },
-    { path: '/my-company', name: 'my-company', component: MyCompany, meta:{ requiresAuth: true} },
-    { path: '/my-resume', name: 'my-resume', component: MyResume, meta:{ requiresAuth: true} },
-    { path: '/past-applications', name: 'past-applications', component: PastApplications, meta:{ requiresAuth: true}},
+    { path: '/my-company', name: 'my-company', component: MyCompany, meta:{ requiresAuth: true, roles: ['employer']} },
+    { path: '/my-resume', name: 'my-resume', component: MyResume, meta:{ requiresAuth: true, roles: ['employee']} },
+    { path: '/past-applications', name: 'past-applications', component: PastApplications, meta:{ requiresAuth: true, roles: ['employee']}},
     { path: '/saved-jobs', name: 'saved-jobs', component: SavedJobs,  meta:{ requiresAuth: true}},
 
-    { path: '/dashboard/stats', name: 'dashboard', component: Dashboard, meta: { hideNavFooter: true, requiresAuth: true } },
+    { path: '/dashboard/stats', name: 'dashboard', component: Dashboard, meta: { hideNavFooter: true, requiresAuth: true, roles: ['admin'] } },
     { path: '/dashboard/users', name: 'users', component: Users, meta: { hideNavFooter: true, requiresAuth: true } },
     { path: '/dashboard/jobs', name: 'dash-jobs', component: DashJobs, meta: { hideNavFooter: true, requiresAuth: true } },
     { path: '/dashboard/admin-profile', name: 'admin-profile', component: AdminProfile, meta: { hideNavFooter: true, requiresAuth: true } },
@@ -108,6 +108,41 @@ router.beforeEach((to, from, next) => {
       return next({ name: 'home' });
     }
   }
+  next();
+});
+
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore();
+
+  // Public route
+  if (!to.meta.requiresAuth) {
+    return next();
+  }
+
+  // Not logged in
+  if (!authStore.user) {
+    return next({ name: 'login' });
+  }
+
+  // Role-based restriction
+  if (to.meta.roles && !to.meta.roles.includes(authStore.user.role)) {
+
+    // Redirect by role
+    if (authStore.user.role === 'admin') {
+      return next({ name: 'dashboard' });
+    }
+
+    if (authStore.user.role === 'employer') {
+      return next({ name: 'Jobdashboard' });
+    }
+
+    if (authStore.user.role === 'employee') {
+      return next({ name: 'my-account' });
+    }
+
+    return next({ name: 'home' });
+  }
+
   next();
 });
 

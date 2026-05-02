@@ -71,7 +71,7 @@ const submitContactForm = async () => {
             rgba(0, 0, 0, 0.9),
             rgba(0, 0, 0, 0)
           ),
-          url('/src/assets/images/job-single.svg');
+          url('/images/job-single.svg');
       "
     >
       <div
@@ -120,7 +120,7 @@ const submitContactForm = async () => {
             </form>
         </div>
         <div class="col-span-10 lg:col-span-3">
-          <img src="@/assets/images/contact-image.png" class="w-full h-full" alt="">
+          <img src="/images/contact-image.png" class="w-full h-full" alt="">
         </div>
       </div>
     </div>

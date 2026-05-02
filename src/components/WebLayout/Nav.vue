@@ -38,7 +38,7 @@ function logout() {
     <nav class="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8 flex justify-between items-center">
       <!--Logo -->
       <div>
-        <RouterLink to="/"><img src="@/assets/images/logo.svg" alt=""></RouterLink>
+        <RouterLink to="/"><img src="/images/logo.svg" alt=""></RouterLink>
       </div>
 
       <div class="hidden lg:flex space-x-12 font-bold">
@@ -103,7 +103,7 @@ function logout() {
       :class="drawerOpen ? 'translate-x-0' : '-translate-x-full'"
     >
       <div class="flex justify-between items-center p-4 border-b">
-        <a href="/"><img src="@/assets/images/logo.svg" alt=""></a>
+        <a href="/"><img src="/images/logo.svg" alt=""></a>
         <button @click="toggleDrawer" class="text-gray-800 hover:text-gray-900 focus:outline-none">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>

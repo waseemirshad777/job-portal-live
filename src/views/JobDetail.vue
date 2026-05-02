@@ -151,7 +151,7 @@ const timeAgo = (createdAt) => {
 <template>
   <section class="job-detail mt-20 py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-dark">
-      <div class="bg-cover bg-center h-72 rounded-xl" style="background-image: url('/src/assets/images/job-single.svg');"></div>
+      <div class="bg-cover bg-center h-72 rounded-xl" style="background-image: url('/images/job-single.svg');"></div>
       <div class="my-8">
         <h2 class="text-xl font-bold hover:text-main">{{ job.title }}</h2>
         <p class="mt-2 text-xs text-gray-400 flex items-center space-x-4 font-medium">

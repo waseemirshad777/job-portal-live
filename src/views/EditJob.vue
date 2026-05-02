@@ -182,7 +182,7 @@ onMounted( () => {
 <template>
   <Loading />
   <section class="job-dashboard mt-16 py-10">
-    <div class="w-full h-40 flex items-center" style="background-image: url('/src/assets/images/bg-breadcrumb.png');">
+    <div class="w-full h-40 flex items-center" style="background-image: url('/images/bg-breadcrumb.png');">
       <div class="text-dark max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center justify-between">
         <p class="text-xl lg:text-3xl font-bold">Edit Job</p>
         <div class="text-xs rounded text-gray-400 bg-white py-2 px-3 mt-3 sm:mt-0 w-max">

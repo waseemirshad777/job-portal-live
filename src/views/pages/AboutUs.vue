@@ -12,7 +12,7 @@ import Subscribe from '@/components/Home/Subscribe.vue';
             rgba(0, 0, 0, 0.9),
             rgba(0, 0, 0, 0)
           ),
-          url('/src/assets/images/job-single.svg');
+          url('/images/job-single.svg');
       "
     >
       <div
@@ -48,7 +48,7 @@ import Subscribe from '@/components/Home/Subscribe.vue';
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div class="">
               <img
-                src="/src/assets/images/7.jpg"
+                src="/images/7.jpg"
                 alt="About Us"
                 class="rounded-lg shadow-lg"
               />

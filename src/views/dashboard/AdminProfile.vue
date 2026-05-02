@@ -4,7 +4,7 @@
       <div :class="['fixed inset-y-0 left-0 z-30 w-64 bg-green-600 transform', { '-translate-x-full': !sidebarOpen, 'translate-x-0': sidebarOpen }]" 
            class="transition-transform duration-300 ease-in-out lg:relative lg:translate-x-0">
         <div class="flex items-center justify-between h-14 bg-white px-4">
-            <RouterLink to="/" class="ml-7"><img src="../../assets/images/logo.png" alt="" width="50px"></RouterLink>
+            <RouterLink to="/" class="ml-7"><img src="/images/logo.png" alt="" width="50px"></RouterLink>
             <Icon icon="bi:x-circle" @click="toggleSidebar" class="h-6 w-6 lg:hidden text-black" />
         </div>
         <nav class="mt-7">
@@ -42,10 +42,10 @@
           
             <div class="mt-5  mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
                 <!-- Profile Header -->
-                <div class="bg-cover bg-center h-56" style="background-image: url('/src/assets/images/8.jpg');">
+                <div class="bg-cover bg-center h-56" style="background-image: url('/images/8.jpg');">
                   <div class="flex items-center justify-center h-full bg-black bg-opacity-50">
                     <div class="text-center">
-                      <img class="h-24 w-24 rounded-full mx-auto border-4 border-white" src="../../assets/images/hero_1.jpg" alt="User Image">
+                      <img class="h-24 w-24 rounded-full mx-auto border-4 border-white" src="/images/hero_1.jpg" alt="User Image">
                       <h1 class="text-2xl font-bold text-white mt-2">John Doe</h1>
                       <p class="text-gray-200">Software Developer</p>
                     </div>

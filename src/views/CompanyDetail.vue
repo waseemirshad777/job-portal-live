@@ -61,7 +61,7 @@ function sendEmail(receiverEmail) {
 <template>
   <section class="job-detail mt-20 py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-dark">
-      <div class="w-full bg-cover bg-center h-72 rounded-xl relative" style="background-image: url('/src/assets/images/recruiter-banner.png');">
+      <div class="w-full bg-cover bg-center h-72 rounded-xl relative" style="background-image: url('/images/recruiter-banner.png');">
         <div class="profile-pic absolute">
           <div class="bg-gray-700 rounded-lg overflow-hidden w-20 h-20 ">
             <img :src="company.companyLogo" alt="" class="h-full w-full">

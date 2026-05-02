@@ -37,9 +37,9 @@ const subscribe = async () => {
 <template>
   <section class="py-16">
     <div class="max-w-7xl mx-4 lg:mx-auto lg:px-4 sm:px-6 lg:px-8">
-      <div class="bg-cover bg-center rounded-xl flex justify-between items-center p-5" style="background-image: url('/src/assets/images/bg-newsletter.svg');">
+      <div class="bg-cover bg-center rounded-xl flex justify-between items-center p-5" style="background-image: url('/images/bg-newsletter.svg');">
         <div class="hidden md:block">
-          <img src="@/assets/images/newsletter-left.png" alt="">
+          <img src="/images/newsletter-left.png" alt="">
         </div>
         <div>
           <h3 class="text-2xl lg:text-4xl text-white font-bold mb-6 text-center">New Things Will Always <br> Update Regularly</h3>
@@ -61,7 +61,7 @@ const subscribe = async () => {
           <div class=" text-sm text-white mt-3 text-center"> {{ error }} </div>
         </div>
         <div class="hidden md:block">
-          <img src="@/assets/images/newsletter-right.png" alt="">
+          <img src="/images/newsletter-right.png" alt="">
         </div>
       </div>
     </div>
