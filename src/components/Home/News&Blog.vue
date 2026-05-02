@@ -48,7 +48,7 @@ onMounted(() => {
             <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
                 <div v-for="(blog, index) in blogs" :key="index" class="blog-card p-3 border rounded-lg shadow-hover-up overflow-hidden">
                     <div class="relative bg-cover bg-center h-60 rounded-lg overflow-hidden">
-                      <img :src="`http://localhost:3000/${blog.blogImage}`" alt="">
+                      <img :src="blog.blogImage" alt="">
                     </div>
                     <div class="mt-2">
                         <div class="space-x-1">
@@ -70,7 +70,7 @@ onMounted(() => {
                         <div class="flex items-center justify-between text-gray-500">
                             <!-- Avatar -->
                             <div v-if="blog.user" class="flex items-center space-x-2">
-                              <img  :src="`http://localhost:3000/${blog.user.profilePhoto}`" alt="" class="w-12 h-12 rounded-full">
+                              <img  :src="blog.user.profilePhoto" alt="" class="w-12 h-12 rounded-full">
                                 <div class="text-sm">
                                   <p class="font-semibold">{{ blog.user.username }}</p>
                                 </div>

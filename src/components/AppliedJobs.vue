@@ -42,7 +42,7 @@ function formatDate(dateString) {
       <div class="flex flex-col md:flex-row items-center justify-between bg-white border border-gray-200 rounded-lg p-4 m-3  md:mb-0">
         <!-- Left Side: Image, Title, Time, Location -->
         <div class="flex items-center space-x-4">
-          <img :src="`http://localhost:3000/${job.job.job_image}`" class="w-20 h-20 object-cover rounded-lg" alt="Job Image">
+          <img :src="job.job.job_image" class="w-20 h-20 object-cover rounded-lg" alt="Job Image">
           <div>
             <h3 class="text-xl font-bold">{{ job.job.title }}</h3>
             <div class="text-gray-500 flex justify-between align-center space-x-4 text-sm">

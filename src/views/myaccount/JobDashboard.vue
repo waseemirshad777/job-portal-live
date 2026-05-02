@@ -90,7 +90,7 @@ onMounted( () => {
                         <td class="py-4 px-4 text-gray-600" colspan="5">You do not have any active listings.</td>
                       </tr>
                       <tr v-else v-for="(job , index) in jobs" :key="index">
-                        <td class="text-sm py-2 px-4"><img :src="`http://localhost:3000/${job.jobImage}`"  alt="" class="w-16 h16 rounded"></td>
+                        <td class="text-sm py-2 px-4"><img :src="job.jobImage"  alt="" class="w-16 h16 rounded"></td>
                         <td class="text-sm py-2 px-4">{{ job.title }}</td>
                         <td class="text-sm py-2 px-4">{{ formatDate(job.createdAt) }}</td>
                         <td class="text-sm py-2 px-4 space-x-3">

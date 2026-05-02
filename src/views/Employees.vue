@@ -127,7 +127,7 @@ onMounted( () => {
         <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mt-10">
             <div v-for="(employee, index) in employees" :key="index" class="bg-white p-6 rounded-lg border shadow-hover-up text-center">
               <!-- Profile Picture -->
-              <img :src="`http://localhost:3000/${employee.profilePicture}`" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4">
+              <img :src="employee.profilePicture" alt="Profile Picture" class="w-24 h-24 rounded-full mx-auto mb-4">
               
               <!-- Name and Profession -->
               <RouterLink :to="`/employee-detail/${employee._id}`" class="text-lg hover:text-main transition font-semibold">{{ employee.fullName }}</RouterLink>

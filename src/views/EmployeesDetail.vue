@@ -42,7 +42,7 @@ function sendEmail(receiverEmail) {
 
 async function downloadResume(filePath) {
   try {
-    const url = `http://localhost:3000/${filePath}`;
+    const url = filePath;
     
     // Fetch the file as a Blob
     const response = await axios.get(url, {
@@ -79,7 +79,7 @@ async function downloadResume(filePath) {
       <div class="w-full bg-cover bg-center h-72 rounded-xl relative" style="background-image: url('/src/assets/images/candidate-banner.jpg');">
         <div class="profile-pic absolute">
           <div class="bg-main2 rounded-full w-20 h-20  overflow-hidden">
-            <img :src="`http://localhost:3000/${employee.profilePicture}`" alt="" class="h-full w-full">
+            <img :src="employee.profilePicture" alt="" class="h-full w-full">
           </div>
           <div class="mt-4 flex justify-between items-center w-full">
             <div>

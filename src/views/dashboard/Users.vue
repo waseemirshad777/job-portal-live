@@ -122,7 +122,7 @@ onMounted(getUsers);
             <td class="px-6 py-3 whitespace-nowrap">
               <div class="flex items-center">
                 <div class="flex-shrink-0 h-10 w-10">
-                  <img :src="`http://localhost:3000/${user.profilePhoto}`" alt="User Photo" class="h-10 w-10 rounded-full">
+                  <img :src="user.profilePhoto" alt="User Photo" class="h-10 w-10 rounded-full">
                 </div>
               </div>
             </td>

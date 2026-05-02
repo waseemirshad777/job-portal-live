@@ -28,7 +28,7 @@ async function logout() {
       <div class="flex items-center space-x-8">
         <button @click="logout" class="text-red-500 focus:outline-none font-bold">Logout</button>
         <div >
-            <img :src="`http://localhost:3000/${store.user.profilePhoto}`" class="h-10 w-10 rounded-full cursor-pointer mr-7" alt="Profile Picture">
+            <img :src="store.user.profilePhoto" class="h-10 w-10 rounded-full cursor-pointer mr-7" alt="Profile Picture">
         </div>
       </div>
     </nav>

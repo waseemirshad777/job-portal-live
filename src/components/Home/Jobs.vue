@@ -83,7 +83,7 @@ onMounted(() => {
       <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
         <div v-for="(job, index) in jobs" :key="index" class="job-card p-3 border rounded-lg shadow-hover-up overflow-hidden">
           <div class="relative h-52 rounded-lg overflow-hidden">
-          <img class="w-full h-full" :src="`http://localhost:3000/${job.jobImage}`" alt="">
+          <img class="w-full h-full" :src="job.jobImage" alt="">
             <div class="absolute top-2 left-2 bg-main3 text-xs font-semibold text-main px-2 py-1 rounded">
               {{ job.jobType }}
             </div>

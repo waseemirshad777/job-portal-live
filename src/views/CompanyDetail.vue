@@ -64,7 +64,7 @@ function sendEmail(receiverEmail) {
       <div class="w-full bg-cover bg-center h-72 rounded-xl relative" style="background-image: url('/src/assets/images/recruiter-banner.png');">
         <div class="profile-pic absolute">
           <div class="bg-gray-700 rounded-lg overflow-hidden w-20 h-20 ">
-            <img :src="`http://localhost:3000/${company.companyLogo}`" alt="" class="h-full w-full">
+            <img :src="company.companyLogo" alt="" class="h-full w-full">
           </div>
           <div class="mt-4 flex justify-between items-center w-full">
             <div>

@@ -65,14 +65,14 @@ onMounted(() => {
                 
                 <div v-for="(blog, index) in latestBlogs" :key="index" class="bg-white rounded-xl shadow-hover-up overflow-hidden shadow-lg">
                     <div class="relative" style="height: 80vh;">
-                        <img :src="`http://localhost:3000/${blog.blogImage}`" alt="Blog Image" class="w-full h-full object-cover">
+                        <img :src="blog.blogImage" alt="Blog Image" class="w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent p-4 flex flex-col justify-end">
                             <h3 class="text-white text-lg font-bold leading-tight">
                               <RouterLink :to="`/blog-detail/${blog._id}`">{{ blog.title }}</RouterLink>
                             </h3>
                             <div v-if="blog.user" class=" flex justify-between items-center  mt-4">
                               <div class="flex items-center space-x-2">
-                                <img :src="`http://localhost:3000/${blog.user.profilePhoto}`" alt="Admin Avatar" class="w-12 h-12 rounded-full">
+                                <img :src="blog.user.profilePhoto" alt="Admin Avatar" class="w-12 h-12 rounded-full">
                                 <div class="text-sm text-white">{{ blog.user.username }}</div>
                               </div>
                               <div class="text-sm text-white capitalize">{{ timeAgo(blog.createdAt) }}</div>
@@ -86,7 +86,7 @@ onMounted(() => {
             <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
               <div v-for="(blog, index) in blogs" :key="index" class="blog-card p-3 border rounded-lg shadow-hover-up overflow-hidden">
                     <div class="relative h-60 rounded-lg overflow-hidden">
-                      <img :src="`http://localhost:3000/${blog.blogImage}`" alt="" class="w-full h-full bg-cover bg-center">
+                      <img :src="blog.blogImage" alt="" class="w-full h-full bg-cover bg-center">
                     </div>
                     <div class="mt-2">
                         <div class="space-x-1">
@@ -108,7 +108,7 @@ onMounted(() => {
                         <div class="flex items-center justify-between text-gray-500">
                             <!-- Avatar -->
                             <div v-if="blog.user" class="flex items-center space-x-2">
-                              <img  :src="`http://localhost:3000/${blog.user.profilePhoto}`" alt="" class="w-12 h-12 rounded-full">
+                              <img  :src="blog.user.profilePhoto" alt="" class="w-12 h-12 rounded-full">
                                 <div class="text-sm">
                                   <p class="font-semibold">{{ blog.user.username }}</p>
                                 </div>

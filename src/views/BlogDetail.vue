@@ -41,7 +41,7 @@ onMounted(() => {
     <section class="job-detail mt-20 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-dark">
             <div class="w-full h-96 rounded-xl relative">
-              <img :src="`http://localhost:3000/${blog.blogImage}`" alt="" class="w-full h-full">
+              <img :src="blog.blogImage" alt="" class="w-full h-full">
             </div>
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 my-20">
                 <div v-if="blog.blogKeywords" class="space-x-2 text-center">
@@ -58,7 +58,7 @@ onMounted(() => {
                 </div>
                 <div class="flex justify-center items-center space-x-8 mt-5 text-sm">
                     <div v-if="blog.user" class="flex items-center space-x-2">
-                        <img :src="`http://localhost:3000/${blog.user.profilePhoto}`" alt="" class="w-12 h-12 rounded-full">
+                        <img :src="blog.user.profilePhoto" alt="" class="w-12 h-12 rounded-full">
                         <div class="text-sm">
                           <p class="font-semibold">{{ blog.user.username }}</p>
                         </div>

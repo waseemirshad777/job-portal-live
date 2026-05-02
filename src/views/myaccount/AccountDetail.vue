@@ -14,7 +14,6 @@ const isEmployerOrAdmin = store.isEmployerOrAdmin;
 const userId = store.user._id; 
 
 const user = ref({});
-user.value = store.user;
 
 
 const username = ref('');
@@ -23,11 +22,13 @@ const lname = ref('');
 const email = ref('');
 const photo = ref(null);
 
-username.value = store.user.username;
-fname.value = store.user.fname;
-lname.value = store.user.lname;
-email.value = store.user.email;
-
+onMounted(() => {
+  user.value = store.user;
+  username.value = store.user.username || '';
+  fname.value = store.user.fname || '';
+  lname.value = store.user.lname || '';
+  email.value = store.user.email || '';
+});
 async function updateProfile() {
   const userData = new FormData();
   userData.append('email', email.value);
