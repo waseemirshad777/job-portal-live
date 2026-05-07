@@ -19,8 +19,6 @@ const getBlogs = async () => {
     const res = await axios.get(`/blogs`);
     blogs.value = res.data.blogs;
     latestBlogs.value = blogs.value.slice(0, 3); 
-    console.log(blogs.value)
-    console.log(latestBlogs.value)
     
   } catch (error) {
     console.error(error);

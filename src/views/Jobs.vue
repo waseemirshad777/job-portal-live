@@ -1,5 +1,4 @@
 <script setup>
-import { Icon } from '@iconify/vue';
 import NewsBlog from '@/components/Home/News&Blog.vue';
 import axios from 'axios';
 import { ref, onMounted, watch } from 'vue';
@@ -16,10 +15,9 @@ const route = useRoute();
 const store = useAuthStore();
 
 const jobs = ref([])
-const jobCount = ref(0)
 const currentPage = ref(1);
 const totalJobs = ref(0);
-const lastPage = ref(0);
+const lastPage = ref(1);
 const perPage = ref(10);
 const from = ref('');
 const to = ref('');
@@ -34,7 +32,6 @@ const getJobs = async (page = 1) => {
   try {
     const res = await axios.get(`/jobs?keyword=${keyword.value}&location=${location.value}&jobType=${jobType.value}&jobCategory=${jobCategory.value}&page=${page}&perPage=${perPage.value}`);
     jobs.value = res.data.jobs;
-    jobCount.value = res.data.jobs.length;
     currentPage.value = res.data.pagination.currentPage;
     perPage.value = res.data.pagination.perPage;
     lastPage.value = res.data.pagination.totalPages;
@@ -56,11 +53,13 @@ watch(showPerPage, (newVal) => {
   getJobs(currentPage.value);
 });
 
-const paginationHandler = (page) => {
-  currentPage.value = page;
-  getJobs(page);
-};
-
+// const paginationHandler = (page) => {
+//   currentPage.value = page;
+//   getJobs(page);
+// };
+watch(currentPage, (newPage) => {
+  getJobs(newPage);
+});
 
 const filterJobs = () => {
   getJobs(currentPage.value);
@@ -141,7 +140,7 @@ const unsaveJob = async (jobId) => {
   <section class="job-filters py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class=" bg-main2 text-center rounded-xl text-sm px-3 md:px-10 py-10">
-        <h2 class="text-xl md:text-3xl font-bold mb-3"><span class="text-main">{{ jobCount }} Jobs</span> Available Now</h2>
+        <h2 class="text-xl md:text-3xl font-bold mb-3"><span class="text-main">{{ totalJobs }} Jobs</span> Available Now</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero repellendus<br>
           magni, atque delectus molestias quis
         </p>
@@ -189,7 +188,7 @@ const unsaveJob = async (jobId) => {
       </div>
 
       <div class="flex justify-between items-center mt-20 px-2">
-            <p class="text-sm text-gray-500">Showing {{ from }} to {{ to }} of {{ totalCompanies }}</p>
+            <p class="text-sm text-gray-500">Showing {{ from }} to {{ to }} of {{ totalJobs  }}</p>
             <div class="flex space-x-4 text-sm">
               <div>
                 <label for="show" class="sr-only">Show</label>
@@ -249,9 +248,8 @@ const unsaveJob = async (jobId) => {
         <vue-awesome-paginate
           :total-items="totalJobs"
           :items-per-page="perPage"
-          :max-pages-shown="lastPage.value"
+          :max-pages-shown="lastPage"
           v-model="currentPage"
-          :on-click="paginationHandler"
           paginate-buttons-class="paginate-btn"
           active-page-class="paginate-btn-active"
           back-button-class="paginate-back-btn"

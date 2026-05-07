@@ -14,7 +14,7 @@ const store = useAuthStore();
 const companies = ref([]);
 const currentPage = ref(1);
 const totalCompanies = ref(0);
-const lastPage = ref(0);
+const lastPage = ref(1);
 const perPage = ref(10);
 const from = ref('');
 const to = ref('');
@@ -47,10 +47,9 @@ watch(showPerPage, (newVal) => {
   getCompanies(currentPage.value);
 });
 
-const paginationHandler = (page) => {
-  currentPage.value = page;
-  getCompanies(page);
-};
+watch(currentPage, (newPage) => {
+  getCompanies(newPage);
+});
 
 const filterCompanies = () => {
   getCompanies(currentPage.value);
@@ -145,9 +144,8 @@ onMounted( () => {
         <vue-awesome-paginate
           :total-items="totalCompanies"
           :items-per-page="perPage"
-          :max-pages-shown="lastPage.value"
+          :max-pages-shown="lastPage"
           v-model="currentPage"
-          :on-click="paginationHandler"
           paginate-buttons-class="paginate-btn"
           active-page-class="paginate-btn-active"
           back-button-class="paginate-back-btn"

@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import axios from 'axios';
 import { useRouter } from 'vue-router';
+import { successToast, errorToast } from '@/utils/util-functions'
 const router = useRouter();
 
 const email = ref('');
@@ -35,7 +36,11 @@ const register = async () => {
     });
    
     if (response.data.status === 201) {
-      router.push('/login')
+      successToast('Account created successfully!')
+      router.push({
+        path: '/resend-email',
+        query: { email: email.value }
+      })
     }else if(response.data.status === 422 || response.data.status === 401) {
       errorMessage.value.password = response.data.message.password ? `${response.data.message.password}` : '';
       errorMessage.value.confirmPassword = response.data.message.confirmPassword ? `${response.data.message.confirmPassword}` : '';

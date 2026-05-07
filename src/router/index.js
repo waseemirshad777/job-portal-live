@@ -52,6 +52,8 @@ const router = createRouter({
 
     { path: '/login', name: 'login', component: Login },
     { path: '/register', name: 'register', component: Register },
+    { path: '/resend-email', name: 'resend-email', component: () => import('@/views/auth/VerifyEmailNotice.vue') },
+    { path: '/verify-email', name: 'verify', component: () => import('@/views/auth/VerifyEmail.vue') },
     { path: '/forgot-password', name: 'forgot-password', component: ForgotPassword },
     { path: '/reset-password/:token', name: 'reset-password', component: ResetPassword },
     { path: '/', name: 'home', component: HomeView },
