@@ -17,10 +17,7 @@ const getJobs = async () => {
   try {
     const res = await axios.get(`/jobs`);
     
-    jobs.value = res.data.jobs.filter((job) => {
-      const jobDate = dayjs(job.createdAt);
-      return jobDate.isSame(dayjs(), 'day'); // Check if the job was posted today
-    });
+    jobs.value = res.data.jobs.slice(0, 3); // Get only the first 6 jobs
     
   } catch (error) {
     console.error(error);
